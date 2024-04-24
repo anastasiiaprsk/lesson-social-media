@@ -10,14 +10,14 @@ let TodoList = (props) => {
 
     let newTaskElement = React.createRef()
     let addTask = () => {
-        let action = addTaskActionCreate()
+        let action = addTaskActionCreate() // {type: 'add-task'}
         props.dispatch(action)
 
     }
 
     let onChange = () => {
         let newText = newTaskElement.current.value;
-        let action = updateNewTaskActionCreate(newText)
+        let action = updateNewTaskActionCreate(newText) // {type: update-task, text: newText}
         props.dispatch(action);
     }
 

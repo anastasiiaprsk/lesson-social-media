@@ -1,4 +1,4 @@
-import classes from './Chess.module.css'
+ import classes from './Chess.module.css'
 import Square from "./Square";
 import React from "react";
 

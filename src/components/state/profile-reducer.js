@@ -2,7 +2,18 @@
 let addPost = 'add-post'
 let updateNewPostText = 'update-new-post-text'
 
-let profileReducer = (state, action) => {
+let initialState =  {
+    posts: [
+        {id: 1, message: 'Hi how are u', likesCount: 15},
+        {id: 2, message: 'It\'s my first post', likesCount: 20}
+
+    ],
+
+        newPostText: 'it-kamasutra.com'
+}
+
+let profileReducer = (state = initialState, action) => {
+
 
     if(action.type === addPost){
         let newPost = {
@@ -10,15 +21,20 @@ let profileReducer = (state, action) => {
             message: state.newPostText,
             likesCount: 0
         }
-        state.posts.push(newPost);
-        state.newPostText = ''
+        state = {
+            ...state,
+            posts: [...state.posts, newPost],
+            newPostText: ''
+        }
 
-
-    } else if(action.type === updateNewPostText){
-        state.newPostText = action.text;
+    } else if(action.type === updateNewPostText) {
+        state = {
+            ...state,
+            newPostText: action.text
+        }
     }
 
-    return state
+        return state
 }
 
 export let addPostActionCreate = () => {
