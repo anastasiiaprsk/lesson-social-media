@@ -1,11 +1,12 @@
  import classes from './Chess.module.css'
 import Square from "./Square";
 import React from "react";
+ import ChessContainer from "./ChessContainer";
 
 let Board = (props) => {
 
-    const colorChess = props.chessPage.chessBoard.map((elem) => {
-        return <Square data={elem} dispatch = {props.dispatch}/>;
+    const colorChess = props.getState().chessPage.chessBoard.map((elem) => {
+        return <ChessContainer/>;
     });
 
     return (

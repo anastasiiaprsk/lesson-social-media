@@ -1,9 +1,11 @@
 import classes from './Friends.module.css'
 import FriendItem from "./FriendItem";
+import {useSelector} from "react-redux";
 
-const Friends = (props) => {
+const Friends = () => {
+    const sideBar = useSelector(state => state.sidebar)
 
-    let friendsElement = props.state.sidebar.map(elem => {
+    let friendsElement = sideBar?.map(elem => {
             return <FriendItem friend={elem.friend} id={elem.id}/>
         })
 

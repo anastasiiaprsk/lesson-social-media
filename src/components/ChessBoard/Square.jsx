@@ -1,19 +1,17 @@
 import classes from './Chess.module.css'
 import Knight from "./Knight";
 import Point from './point'
-import {clickSquareAction, forNextMoveAction} from "../state/chess-reducer";
-
 
 let Square = (props) => {
 
-    let knight = props.data.hasKnight
+    let knight = props.hasKnight
     let content;
 
     if (knight) {
         content = <Knight/>;
     }
 
-    let point = props.data.nextMove
+    let point = props.nextMove
 
     let forPoint
     if(point) {
@@ -21,17 +19,11 @@ let Square = (props) => {
     }
 
     const onSquareClick = () => {
-        const xCoord = props.data.coordX
-        const yCoord = props.data.coordY
-        let action = clickSquareAction(xCoord, yCoord)
-        let action2 = forNextMoveAction(xCoord, yCoord)
-        props.dispatch(action)
-        props.dispatch(action2)
+        props.clickSquare()
+        props.nextMoveType()
 
     }
 
-
-    
     return (
         <div className={classes.square} onClick={onSquareClick} style={{ backgroundColor: props.data.color }}>
             {content}
