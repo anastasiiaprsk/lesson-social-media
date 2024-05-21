@@ -1,14 +1,13 @@
- import classes from './Chess.module.css'
-import Square from "./Square";
+import classes from './Chess.module.css'
 import React from "react";
- import ChessContainer from "./ChessContainer";
+import Square from "./Square";
+import {useSelector} from "react-redux";
 
 let Board = (props) => {
-
-    const colorChess = props.getState().chessPage.chessBoard.map((elem) => {
-        return <ChessContainer/>;
+    const chessPage = useSelector(state => state.chessPage)
+    const colorChess = chessPage.chessBoard.map((elem) => {
+        return <Square data={elem}  />;
     });
-
     return (
         <div>
             <div className={classes.coordX}>
@@ -36,15 +35,9 @@ let Board = (props) => {
                     <div className={classes.number}>3</div>
                     <div className={classes.number}>2</div>
                     <div className={classes.number}>1</div>
-
                 </div>
             </div>
-
-
         </div>
-
-
     )
 }
-
 export default Board

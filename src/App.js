@@ -5,9 +5,9 @@ import Profile  from './components/Profile/Profile';
 import NavBar from './components/Navbar/Nav';
 import Friends from "./components/FriendsBar/Friends";
 import {BrowserRouter,  Route, Routes} from 'react-router-dom'
-import TodoList from "./components/ToDoList/todo";
 import Board from "./components/ChessBoard/Board";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import Dialogs from "./components/Dialogs/Dialogs";
+import Todolist from "./components/ToDoList/todo";
 
 const App = (props) => {
   return (
@@ -18,15 +18,15 @@ const App = (props) => {
             <div className = 'app-wrapper-content'>
                 <Routes>
                     <Route path="/profile"
-                           element={() => <Profile/>}/>
+                           element={<Profile/>}/>
                     <Route path="/dialogs/*"
-                           element={<DialogsContainer />} />
+                           element={<Dialogs />} />
                     <Route path="/friends/*"
-                           element={() => <Friends/>}/>
+                           element={<Friends/>}/>
                     <Route path="/todolist"
-                           element ={() => <TodoList/>}/>
+                           element ={<Todolist/>}/>
                     <Route path='/chessboard'
-                           element = {() => <Board />}/>
+                           element = { <Board />}/>
                     </Routes>
             </div>
 
