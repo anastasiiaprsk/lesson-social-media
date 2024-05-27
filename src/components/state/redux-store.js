@@ -16,4 +16,4 @@ let reducers = combineReducers({
 
 let store = configureStore({reducer: reducers})
 
-export default store 
+export default store

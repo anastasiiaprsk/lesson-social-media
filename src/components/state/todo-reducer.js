@@ -7,7 +7,6 @@ let initialState = {
             {id: 1, taskText: 'купить молоко'},
             {id: 2, taskText: 'Погулять с собакой'}
         ],
-
         newTaskText: 'Add Task'
     }
 
@@ -17,9 +16,7 @@ let toDoReducer = (state = initialState, action) => {
             id: 5,
             taskText: state.newTaskText
         }
-
         state = {...state, tasks: [...state.tasks, newTask], newTaskText: ''}
-
     } else if(action.type === updateNewTaskText) {
         state = {...state, newTaskText: action.text}
     }

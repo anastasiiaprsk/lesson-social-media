@@ -13,8 +13,6 @@ let initialState =  {
 }
 
 let profileReducer = (state = initialState, action) => {
-
-
     if(action.type === addPost){
         let newPost = {
             id: 5,
